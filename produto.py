@@ -6,14 +6,15 @@ def salvaProduto(id, produto):
         arq.write("{0}\n".format(item))
     arq.close()
 
+
 def leProduto(id):
     arq = open("[{0}].product".format(id), 'r')
-    id = arq.readline()
-    nome = arq.readline()
-    descricao = arq.readline()
-    valor = arq.readline()
-    categoria = arq.readline()
-    fornecedor = arq.readline()
+    id = arq.readline().rstrip("\n")
+    nome = arq.readline().rstrip("\n")
+    descricao = arq.readline().rstrip("\n")
+    valor = arq.readline().rstrip("\n")
+    categoria = arq.readline().rstrip("\n")
+    fornecedor = arq.readline().rstrip("\n")
     return [id, nome, descricao, valor, categoria, fornecedor]
 
 
@@ -30,7 +31,20 @@ def cadastraProduto():
     salvaProduto(count, produto)
     count += 1
 
+
+def imprimeProduto(produto):
+    print("Produto:")
+    print("\tid = {0}".format(produto[0]))
+    print("\tnome = {0}".format(produto[1]))
+    print("\tdescricao = {0}".format(produto[2]))
+    print("\tvalor = {0}".format(produto[3]))
+    print("\tcategoria = {0}".format(produto[4]))
+    print("\tfornecedor = {0}".format(produto[5]))
+
 if __name__ == "__main__":
     cadastraProduto()
+    produto = leProduto(0)
+    imprimeProduto(produto)
+
 
     
