@@ -2,6 +2,7 @@ import produto
 import fornecedor
 import consultor
 import necessidade
+import especialidade
 
 
 def imprimeMenuPrincipal():
@@ -63,7 +64,7 @@ def menuCadastroExecuta(opcao):
     elif opcao == 5:
         necessidade.cadastro_necessidade()
     elif opcao == 6:
-        pass
+        especialidade.cadastro_especialidade()
     else:
         return
 
