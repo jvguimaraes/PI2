@@ -1,4 +1,6 @@
 import produto
+import fornecedor
+
 
 def imprimeMenuPrincipal():
     print("SOFTWHERE\n")
@@ -49,7 +51,7 @@ def menuPrincipalExecuta(opcao):
 
 def menuCadastroExecuta(opcao):
     if opcao == 1:
-        pass
+        fornecedor.cadastro_fornecedor()
     elif opcao == 2:
         pass
     elif opcao == 3:
@@ -79,7 +81,7 @@ def menuPesquisaExecuta(opcao):
 
 def main():
     iniciaMenu(imprimeMenuPrincipal, menuPrincipalExecuta)
-    
+
 
 if __name__ == "__main__":
-    main()    
+    main()

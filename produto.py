@@ -1,5 +1,6 @@
 count = 0
 
+
 def salvaProduto(id, produto):
     arq = open("[{0}].product".format(id), 'w')
     for item in produto:
@@ -30,6 +31,7 @@ def cadastraProduto():
     produto.append(input("Fornecedor: "))
     salvaProduto(count, produto)
     count += 1
+    print("cadastro realizado com sucesso!")
 
 
 def imprimeProduto(produto):
@@ -41,10 +43,8 @@ def imprimeProduto(produto):
     print("\tcategoria = {0}".format(produto[4]))
     print("\tfornecedor = {0}".format(produto[5]))
 
+
 if __name__ == "__main__":
     cadastraProduto()
     produto = leProduto(0)
     imprimeProduto(produto)
-
-
-    
