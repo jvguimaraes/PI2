@@ -3,6 +3,7 @@ import fornecedor
 import consultor
 import necessidade
 import especialidade
+import cliente
 
 
 def imprimeMenuPrincipal():
@@ -56,7 +57,7 @@ def menuCadastroExecuta(opcao):
     if opcao == 1:
         fornecedor.cadastro_fornecedor()
     elif opcao == 2:
-        pass
+        cliente.cadastro_cliente()
     elif opcao == 3:
         consultor.cadastro_consultor()
     elif opcao == 4:
