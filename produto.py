@@ -1,5 +1,5 @@
-count = 0
-
+produtosCount = 0
+produtos = []
 
 def salvaProduto(id, produto):
     arq = open("[{0}].product".format(id), 'w')
@@ -20,17 +20,18 @@ def leProduto(id):
 
 
 def cadastraProduto():
-    global count
+    global produtosCount
     produto = []
     print("Insira os dados do produto:")
-    produto.append(count)
+    produto.append(produtosCount)
     produto.append(input("Nome: "))
     produto.append(input("Descrição: "))
     produto.append(int(input("Valor: ")))
     produto.append(input("Categoria: "))
     produto.append(input("Fornecedor: "))
-    salvaProduto(count, produto)
-    count += 1
+    salvaProduto(produtosCount, produto)
+    produtosCount += 1
+    produtos.append(produto)
     print("cadastro realizado com sucesso!")
 
 
