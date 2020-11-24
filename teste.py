@@ -1,6 +1,7 @@
 import produto
 import fornecedor
 import consultor
+import necessidade
 
 
 def imprimeMenuPrincipal():
@@ -60,7 +61,7 @@ def menuCadastroExecuta(opcao):
     elif opcao == 4:
         produto.cadastraProduto()
     elif opcao == 5:
-        pass
+        necessidade.cadastro_necessidade()
     elif opcao == 6:
         pass
     else:
