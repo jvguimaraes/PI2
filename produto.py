@@ -63,7 +63,14 @@ def cadastraProduto():
     produto.append(produtosCount)
     produto.append(input("Nome: "))
     produto.append(input("Descrição: "))
-    produto.append(int(input("Valor: ")))
+
+    while True:
+        try:
+            produto.append(int(input("Valor: ")))
+            break
+        except ValueError:
+            print("Por favor entre um numero inteiro.")
+
     produto.append(input("Categoria: "))
     produto.append(input("Fornecedor: "))
     salvaProduto(produtosCount, produto)
