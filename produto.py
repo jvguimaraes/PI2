@@ -1,5 +1,12 @@
 produtosCount = 0
 produtos = []
+PROD_ID = 0
+PROD_NOME = 1
+PROD_DESC = 2
+PROD_VALUE = 3
+PROD_CAT = 4
+PROD_FORNEC = 5
+
 
 def salvaProduto(id, produto):
     arq = open("[{0}].product".format(id), 'w')
@@ -43,6 +50,38 @@ def imprimeProduto(produto):
     print("\tvalor = {0}".format(produto[3]))
     print("\tcategoria = {0}".format(produto[4]))
     print("\tfornecedor = {0}".format(produto[5]))
+
+
+def pesquisaProduto(nome, categoria, fornecedor):
+    if (nome is not None):
+        return pesquisaPorNome(nome)
+    elif (categoria is not None):
+        return pesquisaPorCategoria(categoria)
+    elif (fornecedor is not None):
+        return pesquisaPorFornecedor(fornecedor)
+    else:
+        return []
+
+
+def pesquisa(index, param):
+    global produtos
+    results = []
+    for produto in produtos:
+        if param in produto[index]:
+            results.append(produto)
+    return results
+
+
+def pesquisaPorNome(nome):
+    return pesquisa(PROD_NOME, nome)
+
+
+def pesquisaPorCategoria(categoria):
+    return pesquisa(PROD_CAT, categoria)
+
+
+def pesquisaPorFornecedor(fornecedor):
+    return pesquisa(PROD_FORNEC, fornecedor)
 
 
 if __name__ == "__main__":
