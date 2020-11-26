@@ -5,6 +5,8 @@ import necessidade
 import especialidade
 import cliente
 
+EXIT_OPTION = 99
+
 
 def imprimeMenuPrincipal():
     print("SOFTWHERE\n")
@@ -62,10 +64,10 @@ def imprimeMenuPesquisaConsultor():
 
 def iniciaMenu(funcaoImprimeOpcoes, funcaoExecuta):
     opcao = 0
-    while opcao != 99:
+    while opcao != EXIT_OPTION:
         funcaoImprimeOpcoes()
         opcao = int(input("\tOpcao: "))
-        if opcao != 99:
+        if opcao != EXIT_OPTION:
             funcaoExecuta(opcao)
 
 
@@ -99,11 +101,9 @@ def menuPesquisaExecuta(opcao):
     if opcao == 1:
         iniciaMenu(imprimeMenuPesquisaProduto, menuPesquisaProdutoExecuta)
     elif opcao == 2:
-        pass
+        iniciaMenu(imprimeMenuPesquisaCliente, menuPesquisaClienteExecuta)
     elif opcao == 3:
-        pass
-    elif opcao == 4:
-        pass
+        iniciaMenu(imprimeMenuPesquisaConsultor, menuPesquisaConsultorExecuta)
     else:
         return
 
@@ -135,6 +135,13 @@ def menuPesquisaClienteExecuta(opcao):
         cliente.pesquisa_area_atuacao()
     elif opcao == 3:
         cliente.pesquisa_necessidade()
+    else:
+        return
+
+
+def menuPesquisaConsultorExecuta(opcao):
+    if opcao == 1:
+        consultor.pesquisa_consultor()
     else:
         return
 
