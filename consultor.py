@@ -20,7 +20,8 @@ def pesquisa_consultor():
     tamanho = len(consultores)
 
     for i in range(tamanho):
-        if pesquisa in (consultores[i]['nome']):
-            lista_pesquisa.append(consultores[i]['consultor'])
+        if pesquisa in (consultores[i]['lista_de_especialidades']):
+            lista_pesquisa.append(consultores[i]['nome'])
 
-    print(f"foram encontrados os seguintes consultores: \n {lista_pesquisa}")
+    print(f"foram encontrados os seguintes consultores com essa especialidade: \n {lista_pesquisa}")
+
