@@ -48,6 +48,47 @@ def confirmacao_cadastro():
         confirmacao_cadastro()
 
 
+def pesquisa_cliente():
+    pesquisa = input("digite a sua pesquisa: ")
+    lista_pesquisa = []
+
+    arquivo = open("dados_nome_cliente.txt", "r").readlines()
+
+    for i in range(len(arquivo)):
+        if pesquisa in (arquivo[i]):
+            lista_pesquisa.append(arquivo[i])
+
+    print(f"foram encontrados os seguintes clientes: \n {lista_pesquisa}")
+
+
+def pesquisa_area_atuacao():
+    pesquisa = input("digite a sua pesquisa: ")
+    lista_pesquisa = []
+
+    arquivo = open("dados_area_atuacao.txt", "r").readlines()
+
+    for i in range(len(arquivo)):
+        if pesquisa in (arquivo[i]):
+            lista_pesquisa.append(arquivo[i])
+
+    print(f"foram encontrados os seguintes clientes: \n {lista_pesquisa}")
+
+# necessidade cadastrada pela Cláudia
+
+
+def pesquisa_necessidade():
+    pesquisa = input("digite a sua pesquisa: ")
+    lista_pesquisa = []
+
+    arquivo = open("dados_necessidade.txt", "r").readlines()
+
+    for i in range(len(arquivo)):
+        if pesquisa in (arquivo[i]):
+            lista_pesquisa.append(arquivo[i])
+
+    print(f"foram encontrados os seguintes clientes: \n {lista_pesquisa}")
+
+
 def main():
     print('CADASTRO DE CLIENTE\n')
     cadastro_cliente()
