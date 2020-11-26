@@ -44,6 +44,22 @@ def imprimeMenuPesquisaProduto():
     print("\t99 - Voltar")
 
 
+def imprimeMenuPesquisaCliente():
+    print("SOFTWHERE\n")
+    print("\tMenu Pesquisa Produto")
+    print("\t01 - Por Nome")
+    print("\t02 - Por Área de Atuação")
+    print("\t03 - Por Necessidade")
+    print("\t99 - Voltar")
+
+
+def imprimeMenuPesquisaConsultor():
+    print("SOFTWHERE\n")
+    print("\tMenu Pesquisa Produto")
+    print("\t01 - Por Especialidade")
+    print("\t99 - Voltar")
+
+
 def iniciaMenu(funcaoImprimeOpcoes, funcaoExecuta):
     opcao = 0
     while opcao != 99:
@@ -112,7 +128,23 @@ def menuPesquisaProdutoExecuta(opcao):
         print("Nenhum resultado encontrado!")
 
 
+def menuPesquisaClienteExecuta(opcao):
+    if opcao == 1:
+        cliente.pesquisa_cliente()
+    elif opcao == 2:
+        cliente.pesquisa_area_atuacao()
+    elif opcao == 3:
+        cliente.pesquisa_necessidade()
+    else:
+        return
+
+
+def init():
+    produto.carregaProdutos()
+
+
 def main():
+    init()
     iniciaMenu(imprimeMenuPrincipal, menuPrincipalExecuta)
 
 

@@ -9,21 +9,51 @@ PROD_FORNEC = 5
 
 
 def salvaProduto(id, produto):
-    arq = open("[{0}].product".format(id), 'w')
+    arq = open("produtos.txt", 'a+')
     for item in produto:
         arq.write("{0}\n".format(item))
     arq.close()
 
 
 def leProduto(id):
-    arq = open("[{0}].product".format(id), 'r')
-    arq.readline().rstrip("\n")
-    nome = arq.readline().rstrip("\n")
-    descricao = arq.readline().rstrip("\n")
-    valor = arq.readline().rstrip("\n")
-    categoria = arq.readline().rstrip("\n")
-    fornecedor = arq.readline().rstrip("\n")
-    return [id, nome, descricao, valor, categoria, fornecedor]
+    arq = open("produtos.txt", 'r+')
+    while True:
+        nid = arq.readline().rstrip("\n")
+        if (nid == ""):
+            return None
+        nome = arq.readline().rstrip("\n")
+        descricao = arq.readline().rstrip("\n")
+        valor = arq.readline().rstrip("\n")
+        categoria = arq.readline().rstrip("\n")
+        fornecedor = arq.readline().rstrip("\n")
+        if (int(nid) == id):
+            return [id, nome, descricao, valor, categoria, fornecedor]
+
+
+def carregaProdutos():
+    global produtosCount
+    global produtos
+
+    arq = open("produtos.txt", 'a+')
+    arq.seek(0)
+    while True:
+        nid = arq.readline().rstrip("\n")
+        if (nid == ""):
+            arq.close()
+            return
+        nome = arq.readline().rstrip("\n")
+        descricao = arq.readline().rstrip("\n")
+        valor = arq.readline().rstrip("\n")
+        categoria = arq.readline().rstrip("\n")
+        fornecedor = arq.readline().rstrip("\n")
+
+        produtos.append([int(nid),
+                         nome,
+                         descricao,
+                         valor,
+                         categoria,
+                         fornecedor])
+        produtosCount += 1
 
 
 def cadastraProduto():
@@ -74,6 +104,9 @@ def pesquisaPorFornecedor(fornecedor):
 
 
 if __name__ == "__main__":
+    carregaProdutos()
+    for produto in produtos:
+        imprimeProduto(produto)
     cadastraProduto()
-    produto = leProduto(0)
-    imprimeProduto(produto)
+    for produto in produtos:
+        imprimeProduto(produto)
