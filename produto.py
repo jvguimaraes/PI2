@@ -17,7 +17,7 @@ def salvaProduto(id, produto):
 
 def leProduto(id):
     arq = open("[{0}].product".format(id), 'r')
-    id = arq.readline().rstrip("\n")
+    arq.readline().rstrip("\n")
     nome = arq.readline().rstrip("\n")
     descricao = arq.readline().rstrip("\n")
     valor = arq.readline().rstrip("\n")
@@ -44,23 +44,12 @@ def cadastraProduto():
 
 def imprimeProduto(produto):
     print("Produto:")
-    print("\tid = {0}".format(produto[0]))
-    print("\tnome = {0}".format(produto[1]))
-    print("\tdescricao = {0}".format(produto[2]))
-    print("\tvalor = {0}".format(produto[3]))
-    print("\tcategoria = {0}".format(produto[4]))
-    print("\tfornecedor = {0}".format(produto[5]))
-
-
-def pesquisaProduto(nome, categoria, fornecedor):
-    if (nome is not None):
-        return pesquisaPorNome(nome)
-    elif (categoria is not None):
-        return pesquisaPorCategoria(categoria)
-    elif (fornecedor is not None):
-        return pesquisaPorFornecedor(fornecedor)
-    else:
-        return []
+    print("\tid = {0}".format(produto[PROD_ID]))
+    print("\tnome = {0}".format(produto[PROD_NOME]))
+    print("\tdescricao = {0}".format(produto[PROD_DESC]))
+    print("\tvalor = {0}".format(produto[PROD_VALUE]))
+    print("\tcategoria = {0}".format(produto[PROD_CAT]))
+    print("\tfornecedor = {0}".format(produto[PROD_FORNEC]))
 
 
 def pesquisa(index, param):
