@@ -56,7 +56,7 @@ def pesquisa(index, param):
     global produtos
     results = []
     for produto in produtos:
-        if param in produto[index]:
+        if param.lower() in produto[index].lower():
             results.append(produto)
     return results
 

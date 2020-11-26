@@ -35,6 +35,15 @@ def imprimeMenuPesquisa():
     print("\t99 - Voltar")
 
 
+def imprimeMenuPesquisaProduto():
+    print("SOFTWHERE\n")
+    print("\tMenu Pesquisa Produto")
+    print("\t01 - Por Nome")
+    print("\t02 - Por Categoria")
+    print("\t03 - Por Fornecedor")
+    print("\t99 - Voltar")
+
+
 def iniciaMenu(funcaoImprimeOpcoes, funcaoExecuta):
     opcao = 0
     while opcao != 99:
@@ -72,7 +81,7 @@ def menuCadastroExecuta(opcao):
 
 def menuPesquisaExecuta(opcao):
     if opcao == 1:
-        pass
+        iniciaMenu(imprimeMenuPesquisaProduto, menuPesquisaProdutoExecuta)
     elif opcao == 2:
         pass
     elif opcao == 3:
@@ -81,6 +90,26 @@ def menuPesquisaExecuta(opcao):
         pass
     else:
         return
+
+
+def menuPesquisaProdutoExecuta(opcao):
+    resultadoPesquisa = []
+    if opcao == 1:
+        nome = input("Nome: ")
+        resultadoPesquisa = produto.pesquisaPorNome(nome)
+    elif opcao == 2:
+        categoria = input("Categoria: ")
+        resultadoPesquisa = produto.pesquisaPorCategoria(categoria)
+    elif opcao == 3:
+        fornecedor = input("Fornecedor: ")
+        resultadoPesquisa = produto.pesquisaPorFornecedor(fornecedor)
+    else:
+        return
+
+    for item in resultadoPesquisa:
+        produto.imprimeProduto(item)
+    if len(resultadoPesquisa) == 0:
+        print("Nenhum resultado encontrado!")
 
 
 def main():
