@@ -48,7 +48,7 @@ def imprimeMenuPesquisaProduto():
 
 def imprimeMenuPesquisaCliente():
     print("SOFTWHERE\n")
-    print("\tMenu Pesquisa Produto")
+    print("\tMenu Pesquisa Cliente")
     print("\t01 - Por Nome")
     print("\t02 - Por Área de Atuação")
     print("\t03 - Por Necessidade")
@@ -57,7 +57,7 @@ def imprimeMenuPesquisaCliente():
 
 def imprimeMenuPesquisaConsultor():
     print("SOFTWHERE\n")
-    print("\tMenu Pesquisa Produto")
+    print("\tMenu Pesquisa Consultor")
     print("\t01 - Por Especialidade")
     print("\t99 - Voltar")
 
@@ -130,11 +130,11 @@ def menuPesquisaProdutoExecuta(opcao):
 
 def menuPesquisaClienteExecuta(opcao):
     if opcao == 1:
-        cliente.pesquisa_cliente()
+        cliente.pesquisa_cliente_nome()
     elif opcao == 2:
-        cliente.pesquisa_area_atuacao()
+        cliente.pesquisa_cliente_area()
     elif opcao == 3:
-        cliente.pesquisa_necessidade()
+        cliente.pesquisa_cliente_necessidade()
     else:
         return
 
